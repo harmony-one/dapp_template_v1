@@ -12,7 +12,7 @@ WITHDRAW THAT TOKENS!
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
-contract Counter {
+contract Bank {
     uint256 moneyStored = 0;
 
     function deposit() public payable {
