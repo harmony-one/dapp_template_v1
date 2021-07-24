@@ -4,7 +4,7 @@ This repository provides the most simple template to create your DAPP on the Har
 
 ## Prerequisites
 
-* [https://nodejs.org/en/](https://nodejs.org/en/) 
+* [NodeJS](https://nodejs.org/en/) 
 * Harmony Dev Tools (optional)
     * [CLI](https://docs.harmony.one/home/network/wallets/harmony-cli/download-setup)
     * [Localnet](https://github.com/harmony-one/harmony)
