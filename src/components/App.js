@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './App.css';
+// import Web3 from 'web3';
+// var web3 = new Web3(Web3.givenProvider || 'ws://localhost:9500');
+
 
 class App extends Component {
   render() {
@@ -38,7 +41,7 @@ class App extends Component {
             </main>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }

@@ -11,7 +11,7 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(
           privateKeys, // Array of account private keys
-          "https://api.s0.pops.one" // URL to the RPC endpoint
+          "http://localhost:9500"// URL to the RPC endpoint
         )
       },
       network_id: "1666700000" // Match any network id
