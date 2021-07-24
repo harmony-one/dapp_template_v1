@@ -1,7 +1,7 @@
 // This file comes with every Truffle project, and is usually not edited.
 
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22;
+pragma solidity >=0.4.22 <0.8.0;
 
 contract Migrations {
     address public owner = msg.sender;

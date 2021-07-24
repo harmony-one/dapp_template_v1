@@ -90,7 +90,7 @@ truffle deploy --network testnet
 The localnet operates like the mainnet, using some locally deployed validators, that sign blocks and gain block rewards. To get funds, we just transfer some of those profits to our wallets
 
 ```
-hmy --node=http://localhost:9500 transfer --from one103q7qe5t2505lypvltkqtddaef5tzfxwsse4z7 --from-shard 0 --to-shard 0 --to <YOUR_PUBLIC_ADDRESS> --amount 40 
+hmy --node=http://localhost:9500 transfer --from one103q7qe5t2505lypvltkqtddaef5tzfxwsse4z7 --from-shard 0 --to-shard 0 --to <YOUR_PUBLIC_ADDRESS> --amount 40
 ```
 
 When successful, the console logs a transaction receipt and you can check the balance of your account by running
@@ -113,3 +113,45 @@ You should only deploy to mainnet, when your application is ready to be released
 
 [https://docs.harmony.one/home/general/ecosystem/partners/fiat-gateways](https://docs.harmony.one/home/general/ecosystem/partners/fiat-gateways)
 
+## Example: Simple Bank
+
+**This is just a small contract example! Everybody deposits in the same pool and can withdraw everything from that pool! It's just meant as an example and should not be used in production!**
+
+We assume you got the contract and localnet already running. 
+Otherwise setup the localnet and transfer the funds first!
+
+1. Copy the files from the example folder
+    
+    + App.js -> src/components/App.js
+    + Bank.sol -> src/contracts/Bank.sol
+    + 2_deploy.js -> migrations/2_deploy.js
+
+2. Compile and run the migrations
+
+```
+truffle compile
+truffle migrate
+```
+**The output contains the contract address. Copy this address for the next step**
+```
+...
+Replacing 'Migrations'
+   ----------------------
+   > transaction hash:    0x279a32d683ee617c14ba6c3fe646ebe19684dc5f03e74f19e68cc459be2f2d6e
+   > Blocks: 2            Seconds: 4
+   > contract address:    0x46c33fA8506b8971932faf92ca886E49f199A7Dd
+   > block number:        797
+   > block timestamp:     1627126628
+   ...
+```
+3. Insert contract address into App.js.
+
+4. Run the app with 'npm run start'
+
+6. Setup a metamask with the correct network. 
+
+5. When connected with MetaMask you can deposit and withdraw funds.
+
+
+If you want to create a more solid Bank App, have a look at this repository:
+[https://github.com/harmony-one/dbank/blob/master/src/contracts/dBank.sol](https://github.com/harmony-one/dbank/blob/master/src/contracts/dBank.sol)
