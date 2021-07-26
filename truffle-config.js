@@ -1,59 +1,38 @@
 require('babel-register');
 require('babel-polyfill');
 require('dotenv').config();
-const HDWalletProvider = require('truffle-hdwallet-provider-privkey');
-const privateKeys = process.env.PRIVATE_KEYS || ""
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+const privateKeys = [process.env.PRIVATE_KEY, process.env.PRIVATE_KEY_2]
+  .filter(private_key => private_key != null)
 
 module.exports = {
   networks: {
     development: {
-      host: "127.0.0.1",
-      port: 7545,
-      network_id: "*" // Match any network id
-    },
-    kovan: {
-      provider: function() {
+      provider: () => {
         return new HDWalletProvider(
-          privateKeys.split(','), // Array of account private keys
-          `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`// Url to an Ethereum Node
+          privateKeys, // Array of account private keys
+          "http://localhost:9500"// URL to the RPC endpoint
         )
       },
-      gas: 5000000,
-      gasPrice: 5000000000, // 5 gwei
-      network_id: 42
+      network_id: "1666700000" // Match any network id
     },
-    main: {
-      provider: function() {
+    testnet: {
+      provider: () => {
         return new HDWalletProvider(
-          privateKeys.split(','), // Array of account private keys
-          `https://main.infura.io/v3/${process.env.INFURA_API_KEY}`// Url to an Ethereum Node
+          privateKeys, // Array of account private keys
+          "https://api.s0.pops.one" // URL to the RPC endpoint
         )
       },
-      gas: 5000000,
-      gasPrice: 5000000000, // 5 gwei
-      network_id: 1
+      network_id: 1666700000
     },
-    rinkeby: {
-      provider: function() {
+    mainnet: {
+      provider: () => {
         return new HDWalletProvider(
-          privateKeys.split(','), // Array of account private keys
-          `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`// Url to an Ethereum Node
+          privateKeys, // Array of account private keys
+          "https://api.harmony.one" // URL to the RPC endpoint
         )
       },
-      gas: 5000000,
-      gasPrice: 5000000000, // 5 gwei
-      network_id: 4
-    },
-    ropsten: {
-      provider: function() {
-        return new HDWalletProvider(
-          privateKeys.split(','), // Array of account private keys
-          `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`// Url to an Ethereum Node
-        )
-      },
-      gas: 5000000,
-      gasPrice: 5000000000, // 5 gwei
-      network_id: 3
+      network_id: 1666600000
     }
   },
   contracts_directory: './src/contracts/',
