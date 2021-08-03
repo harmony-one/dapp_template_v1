@@ -2,6 +2,9 @@
 
 This repository provides the most simple template to create your DAPP on the Harmony Blockchain using Truffle.
 
+## Tutorial Video
+[![Video Tutorial](https://img.youtube.com/vi/J5F9LIedDdE/0.jpg)](https://www.youtube.com/watch?v=J5F9LIedDdE)
+
 ## Prerequisites
 
 * [NodeJS](https://nodejs.org/en/) 
